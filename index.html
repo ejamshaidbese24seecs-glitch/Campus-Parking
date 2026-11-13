@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CampusPark helps campus visitors explore sample parking availability.">
+  <title>CampusPark | Parking Availability Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="CampusPark home">Campus<span>Park</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#parking">Parking zones</a>
+      <a href="#planner">Plan parking</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CAMPUS PARKING, MADE SIMPLE</p>
+        <h1>Find a spot.<br><span>Get on with your day.</span></h1>
+        <p>Explore demonstration parking zones, compare available spaces and estimate your parking fee before you arrive.</p>
+        <a class="button button-primary" href="#parking">Explore parking</a>
+      </div>
+      <div class="hero-panel" aria-label="Illustrative parking status">
+        <div class="status-top"><span class="live-dot"></span> DEMO CAMPUS STATUS</div>
+        <div class="hero-number" id="hero-available">—</div>
+        <p>spaces currently available</p>
+        <div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <small>Sample data for Assignment 1</small>
+      </div>
+    </section>
+
+    <section class="stats-grid" id="dashboard" aria-label="Parking summary">
+      <article class="stat-card"><span>Total spaces</span><strong id="total-spaces">—</strong><small>Across all demo zones</small></article>
+      <article class="stat-card"><span>Available</span><strong id="available-spaces">—</strong><small>Spaces not occupied</small></article>
+      <article class="stat-card"><span>Occupied</span><strong id="occupied-spaces">—</strong><small>Currently in use</small></article>
+    </section>
+
+    <section class="section" id="parking">
+      <div class="section-heading">
+        <div><p class="eyebrow">EXPLORE THE CAMPUS</p><h2>Parking zones</h2></div>
+        <p class="muted">Availability shown here is sample data, not a live campus feed.</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-field"> <span class="sr-only">Search parking zones</span>
+          <input id="search-input" type="search" placeholder="Search by zone name…" autocomplete="off">
+        </label>
+        <label class="filter-field" for="availability-filter">Availability
+          <select id="availability-filter">
+            <option value="all">All zones</option>
+            <option value="available">Has spaces</option>
+            <option value="full">Full</option>
+          </select>
+        </label>
+      </div>
+      <p id="results-message" class="results-message" aria-live="polite">Loading parking zones…</p>
+      <div id="parking-list" class="parking-grid"></div>
+    </section>
+
+    <section class="planner-section" id="planner">
+      <div class="planner-intro">
+        <p class="eyebrow">MAKE A QUICK PLAN</p>
+        <h2>Check a parking zone</h2>
+        <p>Choose a zone and enter your expected duration. The planner checks sample availability and estimates the fee.</p>
+        <div class="note"><strong>Demo notice</strong><br>This client-side prototype does not reserve a real parking space.</div>
+      </div>
+      <form id="planner-form" class="planner-form">
+        <div class="form-row">
+          <label for="visitor-name">Your name</label>
+          <input id="visitor-name" name="visitorName" type="text" minlength="2" maxlength="50" required placeholder="e.g. Ali Khan">
+        </div>
+        <div class="form-row">
+          <label for="vehicle-type">Vehicle type</label>
+          <select id="vehicle-type" name="vehicleType" required>
+            <option value="">Select vehicle</option>
+            <option value="car">Car</option>
+            <option value="motorcycle">Motorcycle</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="zone-select">Parking zone</label>
+          <select id="zone-select" name="zone" required>
+            <option value="">Select a zone</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="duration">Duration (hours)</label>
+          <input id="duration" name="duration" type="number" min="1" max="12" step="1" required placeholder="1–12">
+        </div>
+        <button class="button button-primary button-wide" type="submit">Check availability & estimate</button>
+        <p class="form-help">All fields are required. Your browser checks the input before the planner runs.</p>
+        <div id="plan-result" class="plan-result" role="status" aria-live="polite">Your parking estimate will appear here.</div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#">Campus<span>Park</span></a>
+    <p>Client-side coursework prototype · Idea 17</p>
+  </footer>
+</body>
+</html>
