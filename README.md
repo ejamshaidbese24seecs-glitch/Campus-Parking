@@ -80,5 +80,4 @@ For Assignment 1, all work runs in the browser: HTML/CSS render the interface an
 - [ ] Check an available zone and verify the fee.
 - [ ] Test at mobile, tablet and desktop widths.
 
-## AI assistance and attribution
-AI assistance was used to prepare this starter scaffold and documentation. Before submission, disclose assistance in the form required by your instructor, understand and revise the code, and cite any external assets or reused code. This scaffold uses no external images, libraries or frameworks.
+GitHub Pages deployment restored.
